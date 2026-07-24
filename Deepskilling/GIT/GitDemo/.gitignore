@@ -1,0 +1,5 @@
+*.log
+log/
+logs/
+*.orig
+*.bak
