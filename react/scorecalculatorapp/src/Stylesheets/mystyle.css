@@ -1,0 +1,216 @@
+/* Student Score Calculator Stylesheet */
+
+.calc-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 2rem auto;
+  z-index: 10;
+}
+
+.glass-panel {
+  background: rgba(22, 28, 39, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.calc-card {
+  padding: 2.5rem;
+}
+
+.calc-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1.5rem;
+}
+
+.calc-badge {
+  display: inline-block;
+  background: rgba(97, 218, 251, 0.1);
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  color: #61dafb;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.calc-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 40%, #a5f3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.calc-desc {
+  color: #9ca3af;
+  margin: 0.5rem 0 0 0;
+  font-size: 1.05rem;
+}
+
+.calc-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+}
+
+/* Inputs Section Styles */
+.input-section h3, .result-section h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input-group input {
+  background: rgba(10, 12, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #61dafb;
+  background: rgba(10, 12, 16, 0.85);
+  box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.15);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Result Section Styles */
+.result-card {
+  background: rgba(10, 12, 16, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.75rem;
+  height: calc(100% - 2.5rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result-main {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-label {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Custom Progress Bar */
+.progress-bar-container {
+  background: rgba(255, 255, 255, 0.05);
+  height: 8px;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+  width: 0%;
+}
+
+.result-details {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 0.5rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detail-row span {
+  color: #9ca3af;
+}
+
+.detail-row strong {
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.status-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .calc-content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .result-card {
+    height: auto;
+  }
+}
