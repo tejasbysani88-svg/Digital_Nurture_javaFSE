@@ -1,1 +1,32 @@
-<p>course-list works!</p>
+<div class="course-list-container">
+  <h2>Available Courses</h2>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading courses from catalog...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div *ngIf="courses.length > 0; else noCourses" class="courses-grid">
+      <app-course-card 
+        *ngFor="let c of courses; trackBy: trackByCourseId" 
+        [course]="c" 
+        (enrollRequested)="onEnroll($event)">
+      </app-course-card>
+    </div>
+  </div>
+
+  <div *ngIf="selectedCourseId" class="selected-course-banner">
+    <p>Selected course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+
+  <ng-template #noCourses>
+    <div class="empty-state">
+      <p>No courses available in the catalog at this time.</p>
+    </div>
+  </ng-template>
+</div>

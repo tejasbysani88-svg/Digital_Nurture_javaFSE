@@ -1,0 +1,35 @@
+<div class="detail-container">
+  <div *ngIf="errorMessage" class="error-banner">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="course" class="course-detail-card">
+    <div class="detail-header">
+      <span class="code">{{ course.code }}</span>
+      <h2>{{ course.name }}</h2>
+    </div>
+
+    <div class="detail-body">
+      <div class="info-row">
+        <span class="label">Credits:</span>
+        <span class="value">{{ course.credits }} Credits</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Grade Status:</span>
+        <span class="value uppercase">{{ course.gradeStatus }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Course Description:</span>
+        <p class="desc">
+          This course offers in-depth instruction in core engineering concepts.
+          Students will engage in practical exercises, project-based assignments,
+          and theoretical explorations to build high-demand skills in the field.
+        </p>
+      </div>
+    </div>
+
+    <div class="detail-actions">
+      <a routerLink="/courses" class="btn btn--back">Back to Catalog</a>
+    </div>
+  </div>
+</div>

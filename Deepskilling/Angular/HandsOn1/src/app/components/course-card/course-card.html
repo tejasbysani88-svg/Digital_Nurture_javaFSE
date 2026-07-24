@@ -1,0 +1,28 @@
+<div class="course-card" [ngClass]="cardClasses" [ngStyle]="borderStyle" appHighlight="#fef9c3">
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+    <div [ngSwitch]="course.gradeStatus" class="badge-container">
+      <span *ngSwitchCase="'passed'" class="badge badge--passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge--failed">Failed</span>
+      <span *ngSwitchCase="'pending'" class="badge badge--pending">Pending</span>
+    </div>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+  <p class="course-credits">{{ course.credits | creditLabel }}</p>
+
+  <div *ngIf="isExpanded" class="details-section">
+    <p><strong>Database Record ID:</strong> {{ course.id }}</p>
+    <p><strong>Academic Status:</strong> {{ course.gradeStatus | uppercase }}</p>
+    <p>This is a core course designed to prepare students for real-world software engineering challenges.</p>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn btn--details" (click)="toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    <button class="btn btn--enroll" (click)="enrollRequested.emit(course.id)">
+      {{ enrollmentService.isEnrolled(course.id) ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>

@@ -1,1 +1,31 @@
-<p>student-profile works!</p>
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar">TS</div>
+    <div class="user-details">
+      <h2>Tejas Sani</h2>
+      <p class="email">tejas.sani@cognizant.com</p>
+      <p class="roll">Student ID: <strong>2026-FSE-987</strong></p>
+    </div>
+  </div>
+
+  <div class="enrollment-list-section">
+    <h3>My Registered Courses</h3>
+    
+    <div *ngIf="enrolledCourses.length > 0; else noEnrollments" class="enrolled-grid">
+      <div *ngFor="let course of enrolledCourses" class="enrolled-item">
+        <div class="item-info">
+          <span class="code">{{ course.code }}</span>
+          <span class="name">{{ course.name }}</span>
+          <span class="credits">{{ course.credits }} Credits</span>
+        </div>
+        <button class="btn btn--unenroll" (click)="unenroll(course.id)">Unenroll</button>
+      </div>
+    </div>
+
+    <ng-template #noEnrollments>
+      <div class="empty-enrollments">
+        <p>You are not currently enrolled in any courses. Go to the course catalog to enroll.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
